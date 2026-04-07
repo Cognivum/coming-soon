@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Journals | Cognivum Academic Press</title>
+    <meta
+      name="description"
+      content="Explore the journals published by Cognivum Academic Press."
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body id="top">
+    <header class="site-header">
+      <div class="header-inner wrap">
+        <a class="brand" href="/" aria-label="Cognivum home">
+          <img src="../assets/cognivum-logo-small.png" alt="Cognivum Academic Press" />
+        </a>
+
+        <nav class="main-nav" aria-label="Primary">
+          <a href="/">Home</a>
+          <a href="/#about">About</a>
+          <a class="is-active" href="/journals">Journals</a>
+          <a href="/#for-authors">For Authors</a>
+          <a href="/#contact">Contact</a>
+        </nav>
+
+        <a class="cta" href="/journals">Visit Journals</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero wrap">
+        <p class="eyebrow">Journal Portfolio</p>
+        <h1>Journals</h1>
+        <p class="lead">
+          Browse our active journals and access each journal homepage on our publishing platform.
+        </p>
+      </section>
+
+      <section class="block wrap" id="journals-list">
+        <div class="block-head">
+          <h2>All Journals</h2>
+        </div>
+
+        <ul class="journal-list">
+          <li class="journal-card">
+            <h3>
+              <a href="/journals/journal-of-marketing-theory-research-and-applications">Journal of Marketing Theory, Research and Applications</a>
+            </h3>
+            <p>
+              Journal of Marketing Theory, Research and Applications is an international,
+              peer-reviewed academic journal that publishes high-quality research advancing
+              knowledge in marketing theory and practice. The journal provides a scholarly
+              platform for researchers, academics, and practitioners to disseminate original
+              studies that contribute to the development of marketing scholarship and the
+              understanding of contemporary market dynamics.
+            </p>
+            <a href="/journals/journal-of-marketing-theory-research-and-applications">View Journal</a>
+            &nbsp;·&nbsp;
+            <a href="/journals/journal-of-marketing-theory-research-and-applications/issue/current">Current Issue</a>
+          </li>
+
+          <li class="journal-card">
+            <h3>
+              <a href="/journals/cognivum-journal-of-business">Cognivum Journal of Business</a>
+            </h3>
+            <p>
+              Cognivum Journal of Business is a peer-reviewed academic journal dedicated to
+              publishing scholarly research that advances knowledge in the field of business
+              and management. The journal provides a platform for researchers and scholars to
+              share original studies that contribute to the understanding of organizational,
+              managerial, and entrepreneurial dynamics in contemporary business environments.
+            </p>
+            <a href="/journals/cognivum-journal-of-business">View Journal</a>
+            &nbsp;·&nbsp;
+            <a href="/journals/cognivum-journal-of-business/issue/current">Current Issue</a>
+          </li>
+
+          <li class="journal-card">
+            <h3>
+              <a href="/journals/annals-of-decision-analytics">Annals of Decision Analytics</a>
+            </h3>
+            <p>
+              Annals of Decision Analytics (ADA) is a peer-reviewed international scientific
+              journal that publishes original research advancing theory and practice in decision
+              analytics, decision sciences, and data-driven decision making. The journal provides
+              a rigorous platform for interdisciplinary research that integrates analytical methods,
+              computational tools, and organizational perspectives to address complex decision
+              problems in management, engineering, social science, and public policy. All content
+              is published in English.
+            </p>
+            <a href="/journals/annals-of-decision-analytics">View Journal</a>
+            &nbsp;·&nbsp;
+            <a href="/journals/annals-of-decision-analytics/issue/current">Current Issue</a>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap footer-inner">
+        <p>© <span id="year"></span> Cognivum Academic Press. All rights reserved.</p>
+        <a class="back-to-top" href="#top" aria-label="Back to top" title="Back to top">↑</a>
+      </div>
+    </footer>
+
+    <script>
+      if (location.protocol.startsWith("http") && location.pathname.endsWith("/index.html")) {
+        const cleaned = location.pathname.replace(/\/index\.html$/, "/");
+        history.replaceState({}, "", cleaned + location.search + location.hash);
+      }
+
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,20 @@
+{
+  "cleanUrls": true,
+  "redirects": [
+    {
+      "source": "/journals/index.html",
+      "destination": "/journals",
+      "permanent": true
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/journals",
+      "destination": "https://origin-cjs.cognivum.com/"
+    },
+    {
+      "source": "/journals/:path*",
+      "destination": "https://origin-cjs.cognivum.com/:path*"
+    }
+  ]
+}
