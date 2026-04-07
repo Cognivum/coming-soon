@@ -43,6 +43,10 @@
       "destination": "https://origin-cjs.cognivum.com/public/:path*"
     },
     {
+      "source": "/styles/:path*",
+      "destination": "https://origin-cjs.cognivum.com/styles/:path*"
+    },
+    {
       "source": "/js/:path*",
       "destination": "https://origin-cjs.cognivum.com/js/:path*"
     },
