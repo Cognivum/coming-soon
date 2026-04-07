@@ -5,6 +5,16 @@
       "source": "/journals/index.html",
       "destination": "/journals",
       "permanent": true
+    },
+    {
+      "source": "/:journal(cognivum-journal-of-business|journal-of-marketing-theory-research-and-applications|annals-of-decision-analytics)",
+      "destination": "/journals/:journal",
+      "permanent": true
+    },
+    {
+      "source": "/:journal(cognivum-journal-of-business|journal-of-marketing-theory-research-and-applications|annals-of-decision-analytics)/:path*",
+      "destination": "/journals/:journal/:path*",
+      "permanent": true
     }
   ],
   "rewrites": [
@@ -15,6 +25,30 @@
     {
       "source": "/journals/:path*",
       "destination": "https://origin-cjs.cognivum.com/:path*"
+    },
+    {
+      "source": "/lib/:path*",
+      "destination": "https://origin-cjs.cognivum.com/lib/:path*"
+    },
+    {
+      "source": "/plugins/:path*",
+      "destination": "https://origin-cjs.cognivum.com/plugins/:path*"
+    },
+    {
+      "source": "/public/:path*",
+      "destination": "https://origin-cjs.cognivum.com/public/:path*"
+    },
+    {
+      "source": "/js/:path*",
+      "destination": "https://origin-cjs.cognivum.com/js/:path*"
+    },
+    {
+      "source": "/templates/:path*",
+      "destination": "https://origin-cjs.cognivum.com/templates/:path*"
+    },
+    {
+      "source": "/index/:path*",
+      "destination": "https://origin-cjs.cognivum.com/index/:path*"
     }
   ]
 }
