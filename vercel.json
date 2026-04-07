@@ -12,8 +12,8 @@
       "permanent": true
     },
     {
-      "source": "/:journal(cognivum-journal-of-business|journal-of-marketing-theory-research-and-applications|annals-of-decision-analytics)/:path*",
-      "destination": "/journals/:journal/:path*",
+      "source": "/:journal(cognivum-journal-of-business|journal-of-marketing-theory-research-and-applications|annals-of-decision-analytics)/index",
+      "destination": "/journals/:journal",
       "permanent": true
     }
   ],
@@ -25,6 +25,10 @@
     {
       "source": "/journals/:path*",
       "destination": "https://origin-cjs.cognivum.com/:path*"
+    },
+    {
+      "source": "/:journal(cognivum-journal-of-business|journal-of-marketing-theory-research-and-applications|annals-of-decision-analytics)/:path*",
+      "destination": "https://origin-cjs.cognivum.com/:journal/:path*"
     },
     {
       "source": "/lib/:path*",
@@ -49,6 +53,10 @@
     {
       "source": "/index/:path*",
       "destination": "https://origin-cjs.cognivum.com/index/:path*"
+    },
+    {
+      "source": "/index.php/:path*",
+      "destination": "https://origin-cjs.cognivum.com/index.php/:path*"
     }
   ]
 }
