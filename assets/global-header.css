@@ -1,0 +1,135 @@
+:root {
+  --cgv-header-height: 104px;
+}
+
+.cgv-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid #dedede;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(8px);
+}
+
+.cgv-header__inner {
+  width: min(1120px, 92vw);
+  margin: 0 auto;
+  min-height: 104px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.cgv-brand img {
+  display: block;
+  height: 58px;
+  width: auto;
+}
+
+.cgv-nav {
+  display: flex;
+  justify-content: center;
+  gap: 1.1rem;
+  flex-wrap: wrap;
+  position: relative;
+  overflow: visible;
+}
+
+.cgv-nav__link,
+.cgv-cta {
+  text-decoration: none;
+  color: #000;
+  font-size: 0.94rem;
+}
+
+.cgv-nav__link:hover,
+.cgv-cta:hover {
+  text-decoration: underline;
+}
+
+.cgv-cta {
+  border: 1px solid #000;
+  padding: 0.48rem 0.86rem;
+  border-radius: 999px;
+}
+
+.cgv-nav__link.is-active {
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.cgv-dropdown {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.cgv-dropdown__menu {
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  transform: translateX(-50%) translateY(4px);
+  min-width: 390px;
+  max-width: min(92vw, 520px);
+  background: #fff;
+  border: 1px solid #dedede;
+  border-radius: 12px;
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.12);
+  padding: 0.46rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.16s ease, transform 0.16s ease, visibility 0.16s ease;
+  z-index: 120;
+}
+
+.cgv-dropdown__item {
+  display: block;
+  font-size: 0.86rem;
+  line-height: 1.35;
+  padding: 0.48rem 0.58rem;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #000;
+}
+
+.cgv-dropdown__item:hover {
+  background: #f4f4f4;
+  text-decoration: none;
+}
+
+.cgv-dropdown:hover .cgv-dropdown__menu,
+.cgv-dropdown:focus-within .cgv-dropdown__menu {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+@media (max-width: 920px) {
+  :root {
+    --cgv-header-height: 84px;
+  }
+
+  .cgv-header__inner {
+    grid-template-columns: 1fr;
+    min-height: 84px;
+    padding: 0.4rem 0;
+    justify-items: center;
+    gap: 0.55rem;
+  }
+
+  .cgv-brand img {
+    height: 48px;
+  }
+
+  .cgv-dropdown__menu {
+    min-width: 300px;
+    max-width: min(92vw, 360px);
+  }
+}

@@ -16,26 +16,12 @@
       rel="stylesheet"
     />
 
+    <link rel="stylesheet" href="../assets/global-header.css" />
+    <link rel="stylesheet" href="../assets/global-footer.css" />
     <link rel="stylesheet" href="../styles.css" />
   </head>
   <body id="top">
-    <header class="site-header">
-      <div class="header-inner wrap">
-        <a class="brand" href="/" aria-label="Cognivum home">
-          <img src="../assets/cognivum-logo-small.png" alt="Cognivum Academic Press" />
-        </a>
-
-        <nav class="main-nav" aria-label="Primary">
-          <a href="/">Home</a>
-          <a href="/#about">About</a>
-          <a class="is-active" href="/journals">Journals</a>
-          <a href="/#for-authors">For Authors</a>
-          <a href="/#contact">Contact</a>
-        </nav>
-
-        <a class="cta" href="/journals">Visit Journals</a>
-      </div>
-    </header>
+    <cognivum-global-header active="journals" logo-src="../assets/cognivum-logo-small.png"></cognivum-global-header>
 
     <main>
       <section class="hero wrap">
@@ -106,20 +92,15 @@
       </section>
     </main>
 
-    <footer class="site-footer">
-      <div class="wrap footer-inner">
-        <p>© <span id="year"></span> Cognivum Academic Press. All rights reserved.</p>
-        <a class="back-to-top" href="#top" aria-label="Back to top" title="Back to top">↑</a>
-      </div>
-    </footer>
+    <cognivum-global-footer></cognivum-global-footer>
 
     <script>
       if (location.protocol.startsWith("http") && location.pathname.endsWith("/index.html")) {
         const cleaned = location.pathname.replace(/\/index\.html$/, "/");
         history.replaceState({}, "", cleaned + location.search + location.hash);
       }
-
-      document.getElementById("year").textContent = new Date().getFullYear();
     </script>
+    <script src="../assets/global-header.js"></script>
+    <script src="../assets/global-footer.js"></script>
   </body>
 </html>
