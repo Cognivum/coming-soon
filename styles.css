@@ -1,9 +1,9 @@
 :root {
-  --bg: #fdfdfd;
+  --bg: #ffffff;
   --ink: #0d0d0d;
   --muted: #4c4c4c;
   --line: #dedede;
-  --panel: rgba(255, 255, 255, 0.74);
+  --panel: #ffffff;
 }
 
 * {
@@ -25,27 +25,8 @@ body {
 
 body::before,
 body::after {
-  content: "";
-  position: fixed;
-  border-radius: 999px;
-  pointer-events: none;
-  z-index: -1;
-}
-
-body::before {
-  width: min(58vw, 540px);
-  height: min(58vw, 540px);
-  background: radial-gradient(circle, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0));
-  top: -170px;
-  left: -110px;
-}
-
-body::after {
-  width: min(52vw, 450px);
-  height: min(52vw, 450px);
-  background: radial-gradient(circle, rgba(0, 0, 0, 0.042), rgba(0, 0, 0, 0));
-  right: -140px;
-  bottom: -220px;
+  content: none;
+  display: none;
 }
 
 .wrap {
