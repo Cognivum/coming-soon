@@ -155,6 +155,7 @@ a {
   flex-wrap: nowrap;
   width: 100%;
   min-width: 0;
+  overflow: visible;
 }
 
 .pkp_site_nav_menu > #siteNav {
@@ -164,6 +165,7 @@ a {
 .pkp_navigation_primary_row {
   flex: 1 1 auto;
   min-width: 0;
+  overflow: hidden;
 }
 
 .pkp_navigation_primary_wrapper {
@@ -180,11 +182,12 @@ a {
   display: flex !important;
   align-items: center;
   justify-content: flex-start;
-  flex-wrap: nowrap;
-  gap: 1rem;
+  flex-wrap: wrap;
+  gap: 0.72rem 0.95rem;
   margin: 0;
   padding: 0;
-  width: auto;
+  width: 100%;
+  min-width: 0;
   float: none !important;
 }
 
@@ -194,6 +197,7 @@ a {
   width: auto !important;
   float: none !important;
   flex: 0 0 auto;
+  max-width: 100%;
 }
 
 .pkp_navigation_primary > li > a,
@@ -206,6 +210,9 @@ a {
 .pkp_navigation_primary > li > a {
   padding: 0;
   white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  line-height: 1.2;
 }
 
 .pkp_navigation_user_wrapper {
@@ -249,6 +256,9 @@ a {
   align-items: center;
   width: auto;
   flex: 0 0 auto;
+  padding-left: 0.2rem;
+  position: relative;
+  z-index: 3;
 }
 
 .pkp_navigation_search_wrapper .pkp_search {
@@ -489,6 +499,10 @@ a {
     font-size: 0.9rem;
   }
 
+  .pkp_navigation_primary {
+    gap: 0.5rem 0.7rem;
+  }
+
   body::before {
     width: 360px;
     height: 360px;
@@ -531,6 +545,12 @@ a {
   }
 }
 
+@media (max-width: 1100px) {
+  .pkp_navigation_user > li:first-child {
+    display: none;
+  }
+}
+
 @media (max-width: 680px) {
   .pkp_head_wrapper {
     grid-template-columns: minmax(0, 1fr);
@@ -551,6 +571,7 @@ a {
 
   .pkp_site_nav_menu {
     gap: 0.45rem;
+    justify-content: space-between;
   }
 
   .pkp_navigation_primary {
