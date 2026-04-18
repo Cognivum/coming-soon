@@ -99,26 +99,20 @@ a {
 
 .pkp_head_wrapper {
   min-height: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 0.38rem;
+  display: block;
   padding-top: 0.55rem;
   padding-bottom: 0.45rem;
 }
 
 .cgv_journal_topbar {
-  display: flex !important;
-  align-items: center;
+  display: block !important;
   width: 100%;
-  min-width: 0;
-  min-height: 38px;
+  margin: 0 0 0.35rem 0;
 }
 
 .cgv_journal_title {
   display: block !important;
-  padding-top: 0;
-  padding-bottom: 0;
-  flex: 1 1 auto;
+  padding: 0;
   min-width: 0;
   overflow: hidden;
 }
@@ -139,11 +133,12 @@ a {
 }
 
 .pkp_site_nav_menu {
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  grid-template-areas: "primary search user";
   align-items: center;
-  justify-content: space-between;
-  gap: 0.7rem;
-  flex-wrap: nowrap;
+  column-gap: 1rem;
+  row-gap: 0.3rem;
   width: 100%;
   min-width: 0;
 }
@@ -153,29 +148,24 @@ a {
 }
 
 .pkp_navigation_primary_row {
-  flex: 1 1 auto;
+  grid-area: primary;
   min-width: 0;
 }
 
 .pkp_navigation_primary_wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  flex-wrap: nowrap;
+  display: block;
   width: 100%;
-  max-width: none;
-  min-width: 0;
 }
 
 .pkp_navigation_primary {
   display: flex !important;
   align-items: center;
   justify-content: flex-start;
-  flex-wrap: nowrap;
-  gap: 0.95rem;
+  flex-wrap: wrap;
+  gap: 0.45rem 0.95rem;
   margin: 0;
   padding: 0;
-  width: auto;
+  width: 100%;
   min-width: 0;
   float: none !important;
 }
@@ -184,6 +174,7 @@ a {
   margin: 0 !important;
   display: inline-flex;
   width: auto !important;
+  position: static !important;
   float: none !important;
   flex: 0 0 auto;
   max-width: 100%;
@@ -205,6 +196,7 @@ a {
 }
 
 .pkp_navigation_user_wrapper {
+  grid-area: user;
   margin-left: 0.65rem !important;
   display: flex !important;
   align-items: center;
@@ -236,7 +228,8 @@ a {
 }
 
 .pkp_navigation_search_wrapper {
-  margin-left: auto;
+  grid-area: search;
+  margin-left: 0;
   display: flex;
   align-items: center;
   width: auto;
@@ -482,6 +475,10 @@ a {
     font-size: 0.88rem;
   }
 
+  .pkp_site_nav_menu {
+    column-gap: 0.7rem;
+  }
+
   body::before {
     width: 360px;
     height: 360px;
@@ -525,11 +522,6 @@ a {
 }
 
 @media (max-width: 1080px) {
-  .pkp_navigation_primary {
-    flex-wrap: wrap;
-    gap: 0.45rem 0.7rem;
-  }
-
   .pkp_navigation_user > li:first-child {
     display: none;
   }
@@ -541,22 +533,23 @@ a {
   }
 
   .pkp_site_nav_menu {
-    flex-wrap: wrap;
-    gap: 0.35rem 0.6rem;
+    grid-template-columns: minmax(0, 1fr) auto auto;
+    grid-template-areas:
+      "primary primary primary"
+      ". search user";
+    column-gap: 0.6rem;
+    row-gap: 0.35rem;
   }
 
   .pkp_navigation_primary_row {
-    order: 1;
-    flex: 1 1 100%;
+    min-width: 0;
   }
 
   .pkp_navigation_search_wrapper {
-    order: 2;
-    margin-left: 0;
+    justify-content: flex-end;
   }
 
   .pkp_navigation_user_wrapper {
-    order: 3;
     margin-left: auto !important;
   }
 
