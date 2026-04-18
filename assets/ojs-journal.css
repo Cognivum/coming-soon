@@ -569,3 +569,57 @@ a {
     font-size: 0.88rem;
   }
 }
+
+/* Header2 hard override: keep journal menu inline on desktop */
+.pkp_structure_head.cgv_journal_head .pkp_site_nav_menu {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 0.9rem !important;
+  flex-wrap: nowrap !important;
+}
+
+.pkp_structure_head.cgv_journal_head .pkp_navigation_primary_row {
+  flex: 1 1 auto !important;
+  min-width: 0 !important;
+}
+
+.pkp_structure_head.cgv_journal_head #navigationPrimary.pkp_navigation_primary {
+  display: inline-flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  flex-wrap: wrap !important;
+  gap: 0.45rem 0.95rem !important;
+  width: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
+}
+
+.pkp_structure_head.cgv_journal_head #navigationPrimary.pkp_navigation_primary > li {
+  display: inline-flex !important;
+  width: auto !important;
+  min-width: 0 !important;
+  float: none !important;
+  clear: none !important;
+  position: static !important;
+  margin: 0 !important;
+}
+
+.pkp_structure_head.cgv_journal_head #navigationPrimary.pkp_navigation_primary > li > a {
+  display: inline-flex !important;
+  align-items: center !important;
+  white-space: nowrap !important;
+  width: auto !important;
+}
+
+.pkp_structure_head.cgv_journal_head .pkp_navigation_search_wrapper {
+  margin-left: auto !important;
+  flex: 0 0 auto !important;
+}
+
+.pkp_structure_head.cgv_journal_head .pkp_navigation_user_wrapper {
+  margin-left: 0.7rem !important;
+  flex: 0 0 auto !important;
+}
