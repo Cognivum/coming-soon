@@ -99,63 +99,53 @@ a {
 
 .pkp_head_wrapper {
   min-height: auto;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  grid-template-areas:
-    "title title"
-    "nav user";
-  column-gap: 0.85rem;
-  row-gap: 0.42rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.38rem;
   padding-top: 0.55rem;
   padding-bottom: 0.45rem;
 }
 
 .cgv_journal_topbar {
-  display: contents !important;
+  display: flex !important;
+  align-items: center;
+  width: 100%;
+  min-width: 0;
+  min-height: 38px;
 }
 
 .cgv_journal_title {
   display: block !important;
-  grid-area: title;
   padding-top: 0;
   padding-bottom: 0;
+  flex: 1 1 auto;
   min-width: 0;
-  max-width: 100%;
-  overflow: visible;
-  position: relative;
-  z-index: 1;
-  visibility: visible !important;
-  opacity: 1 !important;
+  overflow: hidden;
 }
 
 .cgv_journal_title .is_text {
   display: block !important;
-  width: min(100%, 100%);
-  max-width: 100%;
+  width: 100%;
   text-decoration: none;
   color: var(--cgv-ink);
   font-family: "Cormorant Garamond", serif;
-  font-size: clamp(0.95rem, 1.65vw, 1.38rem);
+  font-size: clamp(1.02rem, 2vw, 1.42rem);
   font-weight: 700;
-  line-height: 1.1;
+  line-height: 1.12;
   text-align: left;
   white-space: nowrap !important;
   overflow: hidden !important;
   text-overflow: ellipsis !important;
-  visibility: visible !important;
-  opacity: 1 !important;
 }
 
 .pkp_site_nav_menu {
-  grid-area: nav;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  gap: 0.9rem;
+  justify-content: space-between;
+  gap: 0.7rem;
   flex-wrap: nowrap;
   width: 100%;
   min-width: 0;
-  overflow: visible;
 }
 
 .pkp_site_nav_menu > #siteNav {
@@ -165,7 +155,6 @@ a {
 .pkp_navigation_primary_row {
   flex: 1 1 auto;
   min-width: 0;
-  overflow: hidden;
 }
 
 .pkp_navigation_primary_wrapper {
@@ -182,11 +171,11 @@ a {
   display: flex !important;
   align-items: center;
   justify-content: flex-start;
-  flex-wrap: wrap;
-  gap: 0.72rem 0.95rem;
+  flex-wrap: nowrap;
+  gap: 0.95rem;
   margin: 0;
   padding: 0;
-  width: 100%;
+  width: auto;
   min-width: 0;
   float: none !important;
 }
@@ -216,9 +205,7 @@ a {
 }
 
 .pkp_navigation_user_wrapper {
-  grid-area: user;
-  align-self: center;
-  margin-left: 0 !important;
+  margin-left: 0.65rem !important;
   display: flex !important;
   align-items: center;
   justify-content: flex-end;
@@ -230,10 +217,8 @@ a {
   transform: none !important;
   border: 0 !important;
   padding: 0 !important;
-  max-width: max-content !important;
-  min-width: fit-content;
-  position: relative !important;
-  z-index: 2;
+  max-width: none !important;
+  min-width: 0;
 }
 
 .pkp_navigation_user {
@@ -256,9 +241,7 @@ a {
   align-items: center;
   width: auto;
   flex: 0 0 auto;
-  padding-left: 0.2rem;
-  position: relative;
-  z-index: 3;
+  padding-left: 0;
 }
 
 .pkp_navigation_search_wrapper .pkp_search {
@@ -478,7 +461,7 @@ a {
 
 @media (max-width: 920px) {
   .pkp_head_wrapper {
-    row-gap: 0.35rem;
+    gap: 0.32rem;
   }
 
   .pkp_structure_content.has_sidebar {
@@ -490,17 +473,13 @@ a {
   }
 
   .cgv_journal_title .is_text {
-    font-size: 1.15rem;
+    font-size: clamp(0.96rem, 2.1vw, 1.2rem);
   }
 
   .pkp_navigation_primary > li > a,
   .pkp_navigation_user > li > a,
   .pkp_navigation_search_wrapper .pkp_search {
-    font-size: 0.9rem;
-  }
-
-  .pkp_navigation_primary {
-    gap: 0.5rem 0.7rem;
+    font-size: 0.88rem;
   }
 
   body::before {
@@ -545,48 +524,55 @@ a {
   }
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 1080px) {
+  .pkp_navigation_primary {
+    flex-wrap: wrap;
+    gap: 0.45rem 0.7rem;
+  }
+
   .pkp_navigation_user > li:first-child {
     display: none;
   }
 }
 
 @media (max-width: 680px) {
-  .pkp_head_wrapper {
-    grid-template-columns: minmax(0, 1fr);
-    grid-template-areas:
-      "title"
-      "user"
-      "nav";
-    row-gap: 0.32rem;
-  }
-
   .cgv_journal_title .is_text {
-    font-size: 1rem;
-  }
-
-  .pkp_navigation_user_wrapper {
-    justify-content: flex-start;
+    font-size: 0.96rem;
   }
 
   .pkp_site_nav_menu {
-    gap: 0.45rem;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.35rem 0.6rem;
+  }
+
+  .pkp_navigation_primary_row {
+    order: 1;
+    flex: 1 1 100%;
+  }
+
+  .pkp_navigation_search_wrapper {
+    order: 2;
+    margin-left: 0;
+  }
+
+  .pkp_navigation_user_wrapper {
+    order: 3;
+    margin-left: auto !important;
   }
 
   .pkp_navigation_primary {
-    gap: 0.55rem;
+    gap: 0.4rem 0.6rem;
   }
 
   .pkp_navigation_primary > li > a,
   .pkp_navigation_user > li > a,
   .pkp_navigation_search_wrapper .pkp_search {
-    font-size: 0.86rem;
+    font-size: 0.84rem;
   }
 }
 
 @media (max-width: 520px) {
   .cgv_journal_title .is_text {
-    font-size: 0.9rem;
+    font-size: 0.88rem;
   }
 }
