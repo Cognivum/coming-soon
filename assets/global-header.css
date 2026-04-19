@@ -204,12 +204,15 @@
     padding: 0.45rem 0;
     gap: 0.55rem;
     align-items: center;
+    justify-items: stretch;
   }
 
   .cgv-brand {
     grid-area: brand;
     min-width: 0;
     align-self: center;
+    display: inline-flex;
+    align-items: center;
   }
 
   .cgv-brand img {
@@ -245,6 +248,11 @@
     align-items: center;
     min-height: 2rem;
     font-size: 0.95rem;
+    line-height: 1.35;
+    white-space: normal;
+    word-break: normal;
+    overflow-wrap: normal;
+    text-wrap: balance;
   }
 
   .cgv-header.is-menu-open .cgv-dropdown {
@@ -266,6 +274,14 @@
     pointer-events: auto;
   }
 
+  .cgv-header.is-menu-open .cgv-dropdown__item {
+    white-space: normal;
+    word-break: normal;
+    overflow-wrap: normal;
+    text-wrap: balance;
+    line-height: 1.35;
+  }
+
   .cgv-header.is-menu-open .cgv-cta {
     display: inline-flex;
     grid-area: cta;
@@ -274,5 +290,10 @@
     margin-bottom: 0.1rem;
     font-size: 0.9rem;
     padding: 0.45rem 0.84rem;
+    line-height: 1.35;
+    white-space: normal;
+    word-break: normal;
+    overflow-wrap: normal;
+    text-wrap: balance;
   }
 }
