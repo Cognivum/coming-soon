@@ -27,6 +27,60 @@
   width: auto;
 }
 
+.cgv-menu-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  border: 1px solid #000;
+  border-radius: 999px;
+  background: #fff;
+  color: #000;
+  padding: 0;
+  cursor: pointer;
+}
+
+.cgv-menu-toggle__bars,
+.cgv-menu-toggle__bars::before,
+.cgv-menu-toggle__bars::after {
+  content: "";
+  display: block;
+  width: 1.05rem;
+  height: 2px;
+  border-radius: 999px;
+  background: #000;
+  transition: transform 0.18s ease, opacity 0.18s ease;
+}
+
+.cgv-menu-toggle__bars {
+  position: relative;
+}
+
+.cgv-menu-toggle__bars::before {
+  position: absolute;
+  top: -0.34rem;
+  left: 0;
+}
+
+.cgv-menu-toggle__bars::after {
+  position: absolute;
+  top: 0.34rem;
+  left: 0;
+}
+
+.cgv-header.is-menu-open .cgv-menu-toggle__bars {
+  background: transparent;
+}
+
+.cgv-header.is-menu-open .cgv-menu-toggle__bars::before {
+  transform: translateY(0.34rem) rotate(45deg);
+}
+
+.cgv-header.is-menu-open .cgv-menu-toggle__bars::after {
+  transform: translateY(-0.34rem) rotate(-45deg);
+}
+
 .cgv-nav {
   display: flex;
   justify-content: center;
@@ -131,5 +185,85 @@
   .cgv-dropdown__menu {
     min-width: 300px;
     max-width: min(92vw, 360px);
+  }
+}
+
+@media (max-width: 1040px) {
+  :root {
+    --cgv-header-height: 84px;
+  }
+
+  .cgv-header__inner {
+    grid-template-columns: minmax(0, 1fr) auto;
+    min-height: 84px;
+    padding: 0.45rem 0;
+    gap: 0.55rem;
+    align-items: center;
+  }
+
+  .cgv-brand {
+    min-width: 0;
+  }
+
+  .cgv-brand img {
+    height: 48px;
+    max-width: 100%;
+  }
+
+  .cgv-menu-toggle {
+    display: inline-flex;
+    justify-self: end;
+  }
+
+  .cgv-nav,
+  .cgv-cta {
+    display: none;
+  }
+
+  .cgv-header.is-menu-open .cgv-nav {
+    display: flex;
+    grid-column: 1 / -1;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.35rem;
+    padding: 0.25rem 0 0.05rem;
+    border-top: 1px solid #dedede;
+  }
+
+  .cgv-header.is-menu-open .cgv-nav__link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2rem;
+    font-size: 0.95rem;
+  }
+
+  .cgv-header.is-menu-open .cgv-dropdown {
+    width: 100%;
+    display: block;
+  }
+
+  .cgv-header.is-menu-open .cgv-dropdown__menu {
+    position: static;
+    transform: none;
+    min-width: 0;
+    max-width: none;
+    width: 100%;
+    margin-top: 0.28rem;
+    border-radius: 10px;
+    box-shadow: none;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  .cgv-header.is-menu-open .cgv-cta {
+    display: inline-flex;
+    grid-column: 1 / -1;
+    justify-self: start;
+    margin-top: 0.25rem;
+    margin-bottom: 0.1rem;
+    font-size: 0.9rem;
+    padding: 0.45rem 0.84rem;
   }
 }

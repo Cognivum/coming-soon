@@ -135,9 +135,75 @@
     }
   }
 
+  function closeJournalMobileMenu(head) {
+    if (!head) return;
+    head.classList.remove('cgv-menu-open');
+    var toggle = head.querySelector('.cgv-journal-menu-toggle');
+    if (!toggle) return;
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-label', 'Open journal menu');
+  }
+
+  function ensureJournalMobileMenu(head) {
+    if (!head) return;
+
+    var topbar = head.querySelector('.cgv_journal_topbar');
+    var menu = head.querySelector('.pkp_site_nav_menu');
+    if (!topbar || !menu) return;
+
+    if (!menu.id) menu.id = 'cgvJournalNav';
+
+    var toggle = topbar.querySelector('.cgv-journal-menu-toggle');
+    if (!toggle) {
+      toggle = document.createElement('button');
+      toggle.type = 'button';
+      toggle.className = 'cgv-journal-menu-toggle';
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-controls', menu.id);
+      toggle.setAttribute('aria-label', 'Open journal menu');
+      toggle.innerHTML = '<span class="cgv-journal-menu-toggle__bars" aria-hidden="true"></span>';
+
+      var title = topbar.querySelector('.cgv_journal_title');
+      if (title) {
+        topbar.insertBefore(toggle, title);
+      } else {
+        topbar.insertBefore(toggle, topbar.firstChild);
+      }
+    } else {
+      toggle.setAttribute('aria-controls', menu.id);
+    }
+
+    if (head.dataset.cgvMobileMenuBound === '1') return;
+    head.dataset.cgvMobileMenuBound = '1';
+
+    toggle.addEventListener('click', function (event) {
+      event.preventDefault();
+      var isOpen = head.classList.toggle('cgv-menu-open');
+      toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      toggle.setAttribute('aria-label', isOpen ? 'Close journal menu' : 'Open journal menu');
+    });
+
+    head.addEventListener('click', function (event) {
+      if (window.innerWidth > 992) return;
+      var anchor = event.target && event.target.closest ? event.target.closest('a') : null;
+      if (anchor) closeJournalMobileMenu(head);
+    });
+
+    document.addEventListener('click', function (event) {
+      if (window.innerWidth > 992) return;
+      if (!head.contains(event.target)) closeJournalMobileMenu(head);
+    });
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape') closeJournalMobileMenu(head);
+    });
+  }
+
   function normalizeJournalNav() {
     var head = document.querySelector('.pkp_structure_head.cgv_journal_head');
     if (!head) return;
+    ensureJournalMobileMenu(head);
+    if (window.innerWidth >= 992) closeJournalMobileMenu(head);
     stripNavInlineStyles(head);
     forceDesktopJournalNav(head);
   }
