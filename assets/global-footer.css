@@ -20,6 +20,10 @@
   text-align: left;
 }
 
+.cgv-footer__rights {
+  display: inline;
+}
+
 .cgv-back-to-top {
   display: inline-flex;
   align-items: center;
@@ -48,6 +52,11 @@
 
   .cgv-footer__inner p {
     font-size: 0.82rem;
+    line-height: 1.35;
+  }
+
+  .cgv-footer__rights {
+    display: block;
   }
 
   .cgv-back-to-top {
@@ -56,4 +65,3 @@
     font-size: 0.95rem;
   }
 }
-

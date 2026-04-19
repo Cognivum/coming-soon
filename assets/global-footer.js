@@ -5,9 +5,9 @@
       this.innerHTML =
         '<footer class="cgv-footer">' +
         '  <div class="cgv-footer__inner">' +
-        '    <p>&copy; ' +
+        '    <p><span class="cgv-footer__copyright">&copy; ' +
         year +
-        ' Cognivum Academic Press. All rights reserved.</p>' +
+        ' Cognivum Academic Press.</span> <span class="cgv-footer__rights">All rights reserved.</span></p>' +
         '    <a class="cgv-back-to-top" href="#top" aria-label="Back to top" title="Back to top">&#8593;</a>' +
         "  </div>" +
         "</footer>";
@@ -18,4 +18,3 @@
     customElements.define("cognivum-global-footer", CognivumGlobalFooter);
   }
 })();
-
