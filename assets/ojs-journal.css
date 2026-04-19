@@ -221,6 +221,9 @@ a {
   white-space: nowrap;
   margin: 0;
   padding: 0;
+  width: auto !important;
+  max-width: none !important;
+  position: static !important;
 }
 
 .pkp_navigation_user > li {
@@ -598,6 +601,7 @@ a {
     flex-wrap: nowrap !important;
     gap: 0.45rem 0.95rem !important;
     width: 100% !important;
+    max-width: none !important;
     margin: 0 !important;
     padding: 0 !important;
     white-space: nowrap !important;
@@ -635,5 +639,15 @@ a {
     grid-area: user !important;
     margin-left: 0 !important;
     justify-self: end !important;
+  }
+
+  .pkp_structure_head.cgv_journal_head .pkp_navigation_user {
+    width: auto !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    position: static !important;
+    display: inline-flex !important;
+    justify-content: flex-end !important;
   }
 }
