@@ -632,7 +632,7 @@ a {
     overflow: visible !important;
     text-overflow: clip !important;
     line-height: 1.18;
-    font-size: clamp(1.04rem, 3.6vw, 1.52rem);
+    font-size: clamp(1.12rem, 3.9vw, 1.64rem);
     display: block !important;
     word-break: normal !important;
     overflow-wrap: normal !important;
@@ -811,7 +811,7 @@ a {
 
 @media (max-width: 680px) {
   .cgv_journal_title .is_text {
-    font-size: clamp(0.98rem, 4.6vw, 1.32rem);
+    font-size: clamp(1.06rem, 4.9vw, 1.44rem);
     line-height: 1.16;
   }
 
@@ -822,7 +822,7 @@ a {
 
 @media (max-width: 520px) {
   .cgv_journal_title .is_text {
-    font-size: clamp(0.94rem, 4.8vw, 1.12rem);
+    font-size: clamp(1rem, 5.2vw, 1.2rem);
     line-height: 1.15;
   }
 }
