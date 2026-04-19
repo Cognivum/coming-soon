@@ -214,6 +214,14 @@
     window.requestAnimationFrame(forceInlineDesktopNav);
     window.setTimeout(forceInlineDesktopNav, 120);
     window.setTimeout(forceInlineDesktopNav, 420);
+    var stabilizeTicks = 0;
+    var stabilizeTimer = window.setInterval(function () {
+      forceInlineDesktopNav();
+      stabilizeTicks += 1;
+      if (stabilizeTicks >= 20) {
+        window.clearInterval(stabilizeTimer);
+      }
+    }, 500);
     if (window.ResizeObserver) {
       var headerEl = document.querySelector('.cgv_global_header_shell');
       if (headerEl) {
