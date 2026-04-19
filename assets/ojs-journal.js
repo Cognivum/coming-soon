@@ -155,8 +155,9 @@
     primary.style.setProperty('overflow-x', 'auto', 'important');
     primary.style.setProperty('overflow-y', 'hidden', 'important');
 
-    var items = primary.querySelectorAll(':scope > li');
-    items.forEach(function (li) {
+    var items = primary.children || [];
+    Array.prototype.forEach.call(items, function (li) {
+      if (!li || li.tagName !== 'LI') return;
       li.style.setProperty('display', 'inline-flex', 'important');
       li.style.setProperty('flex', '0 0 auto', 'important');
       li.style.setProperty('width', 'auto', 'important');
@@ -168,7 +169,7 @@
       li.style.setProperty('visibility', 'visible', 'important');
       li.style.setProperty('opacity', '1', 'important');
 
-      var a = li.querySelector(':scope > a');
+      var a = li.querySelector('a');
       if (a) {
         a.style.setProperty('display', 'inline-flex', 'important');
         a.style.setProperty('align-items', 'center', 'important');
