@@ -617,6 +617,8 @@ a {
     clear: none !important;
     position: static !important;
     margin: 0 !important;
+    visibility: visible !important;
+    opacity: 1 !important;
   }
 
   .pkp_structure_head.cgv_journal_head #navigationPrimary.pkp_navigation_primary > li > a {
@@ -625,6 +627,8 @@ a {
     white-space: nowrap !important;
     width: auto !important;
     padding: 0 !important;
+    visibility: visible !important;
+    opacity: 1 !important;
   }
 
   .pkp_structure_head.cgv_journal_head .pkp_navigation_search_wrapper {
