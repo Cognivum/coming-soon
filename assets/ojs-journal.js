@@ -142,16 +142,64 @@
     forceDesktopJournalNav(head);
   }
 
+  function getJournalSlugFromPath(pathname) {
+    if (!pathname) return '';
+    var clean = pathname.split('?')[0].split('#')[0].toLowerCase().replace(/\/+$/, '');
+    var parts = clean.split('/').filter(Boolean);
+    if (!parts.length) return '';
+
+    var journalsIdx = parts.indexOf('journals');
+    if (journalsIdx !== -1 && parts[journalsIdx + 1]) return parts[journalsIdx + 1];
+
+    var indexPhpIdx = parts.indexOf('index.php');
+    if (indexPhpIdx !== -1 && parts[indexPhpIdx + 1]) return parts[indexPhpIdx + 1];
+
+    if (parts[0] !== 'index.php') return parts[0];
+    return parts[parts.length - 1] || '';
+  }
+
+  function normalizeJournalDirectoryBlock() {
+    var block = document.getElementById('customblock-cognivum-academic-press-journals');
+    if (!block) return;
+
+    var links = block.querySelectorAll('.content a[href]');
+    if (!links.length) return;
+
+    var currentSlug = getJournalSlugFromPath(window.location.pathname);
+    if (!currentSlug) return;
+
+    Array.prototype.forEach.call(links, function (link) {
+      link.classList.remove('cgv-current-journal-link');
+      var container = link.closest('h1, h2, h3, h4, h5, h6, p, li');
+      if (container) container.classList.remove('cgv-current-journal-link');
+
+      var linkPath = '';
+      try {
+        linkPath = new URL(link.getAttribute('href'), window.location.origin).pathname;
+      } catch (e) {
+        linkPath = link.pathname || '';
+      }
+      var linkSlug = getJournalSlugFromPath(linkPath);
+      if (linkSlug && linkSlug === currentSlug) {
+        link.classList.add('cgv-current-journal-link');
+        if (container) container.classList.add('cgv-current-journal-link');
+      }
+    });
+  }
+
   function init() {
     setHeaderOffset();
     normalizeJournalNav();
+    normalizeJournalDirectoryBlock();
     window.requestAnimationFrame(function () {
       setHeaderOffset();
       normalizeJournalNav();
+      normalizeJournalDirectoryBlock();
     });
     window.setTimeout(function () {
       setHeaderOffset();
       normalizeJournalNav();
+      normalizeJournalDirectoryBlock();
     }, 250);
 
     window.addEventListener(
@@ -159,6 +207,7 @@
       function () {
         setHeaderOffset();
         normalizeJournalNav();
+        normalizeJournalDirectoryBlock();
       },
       { passive: true }
     );
