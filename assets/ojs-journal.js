@@ -1,4 +1,25 @@
 (function () {
+  function upsertIconLink(rel, href, sizes) {
+    var selector = 'link[rel="' + rel + '"]';
+    var link = document.head ? document.head.querySelector(selector) : null;
+    if (!link) {
+      link = document.createElement('link');
+      link.setAttribute('rel', rel);
+      document.head.appendChild(link);
+    }
+    link.setAttribute('href', href);
+    if (sizes) link.setAttribute('sizes', sizes);
+    if (rel === 'icon') link.setAttribute('type', 'image/png');
+  }
+
+  function ensureFavicon() {
+    if (!document.head) return;
+    var href = '/favicon-cognivum-square.png';
+    upsertIconLink('icon', href, '512x512');
+    upsertIconLink('shortcut icon', href);
+    upsertIconLink('apple-touch-icon', href);
+  }
+
   function setHeaderOffset() {
     var globalHeader = document.querySelector('.cgv_global_header_shell .cgv-header');
     var h = globalHeader ? Math.ceil(globalHeader.getBoundingClientRect().height) : 104;
@@ -262,6 +283,7 @@
   }
 
   function init() {
+    ensureFavicon();
     setHeaderOffset();
     normalizeJournalNav();
     normalizeJournalDirectoryBlock();
