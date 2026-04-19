@@ -187,19 +187,30 @@
     });
   }
 
+  function setHomepageSummaryHeading() {
+    var page = document.querySelector('.page_index_journal');
+    if (!page) return;
+    var aboutHeading = page.querySelector('.homepage_about h2');
+    if (!aboutHeading) return;
+    aboutHeading.textContent = 'Summary';
+  }
+
   function init() {
     setHeaderOffset();
     normalizeJournalNav();
     normalizeJournalDirectoryBlock();
+    setHomepageSummaryHeading();
     window.requestAnimationFrame(function () {
       setHeaderOffset();
       normalizeJournalNav();
       normalizeJournalDirectoryBlock();
+      setHomepageSummaryHeading();
     });
     window.setTimeout(function () {
       setHeaderOffset();
       normalizeJournalNav();
       normalizeJournalDirectoryBlock();
+      setHomepageSummaryHeading();
     }, 250);
 
     window.addEventListener(
@@ -208,6 +219,7 @@
         setHeaderOffset();
         normalizeJournalNav();
         normalizeJournalDirectoryBlock();
+        setHomepageSummaryHeading();
       },
       { passive: true }
     );
