@@ -114,7 +114,7 @@ a {
   display: block !important;
   padding: 0;
   min-width: 0;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .cgv_journal_title .is_text {
@@ -125,8 +125,9 @@ a {
   font-family: "Cormorant Garamond", serif;
   font-size: clamp(1.35rem, 2.35vw, 2.1rem);
   font-weight: 800;
-  line-height: 1.05;
+  line-height: 1.16;
   letter-spacing: -0.01em;
+  padding-bottom: 0.08em;
   text-align: left;
   white-space: nowrap !important;
   overflow: hidden !important;
@@ -290,7 +291,7 @@ a {
   grid-area: side;
   align-self: start;
   margin-top: 0 !important;
-  padding-top: 1.1rem !important;
+  padding-top: 1.25rem !important;
 }
 
 .pkp_structure_content.has_sidebar:before,
@@ -307,7 +308,7 @@ a {
 
 .pkp_structure_main,
 .pkp_structure_sidebar {
-  font-family: "Manrope", sans-serif;
+  font-family: "Cormorant Garamond", serif;
 }
 
 .pkp_block .title,
@@ -323,42 +324,46 @@ a {
 .pkp_structure_main li,
 .pkp_structure_sidebar p,
 .pkp_structure_sidebar li {
-  font-size: 0.96rem !important;
-  line-height: 1.72;
+  font-size: 1.08rem !important;
+  line-height: 1.58;
   color: var(--cgv-muted);
 }
 
 .pkp_structure_main h1 {
-  font-size: 2.45rem;
+  font-size: 1.95rem;
   margin-top: 0;
-  margin-bottom: 0.7rem;
+  margin-bottom: 0.55rem;
 }
 
 .pkp_structure_main h2,
 .pkp_structure_sidebar h2,
 .pkp_structure_sidebar .title {
-  font-size: 1.95rem;
+  font-size: 1.52rem;
   margin-top: 0;
-  margin-bottom: 0.65rem;
+  margin-bottom: 0.5rem;
 }
 
 .pkp_structure_main h3,
 .pkp_structure_sidebar h3 {
-  font-size: 1.55rem;
+  font-size: 1.34rem;
   margin-top: 0;
-  margin-bottom: 0.55rem;
+  margin-bottom: 0.44rem;
 }
 
 .pkp_structure_main h4,
 .pkp_structure_sidebar h4 {
-  font-size: 1.24rem;
+  font-size: 1.16rem;
   margin-top: 0;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
 }
 
 .pkp_structure_main .cmp_breadcrumbs li,
 .pkp_structure_main .cmp_breadcrumbs a {
   font-size: 0.88rem;
+}
+
+.pkp_structure_main .cmp_breadcrumbs {
+  display: none !important;
 }
 
 .pkp_structure_main > [class^="page_"],
@@ -428,6 +433,20 @@ a {
   padding-bottom: 8px;
   border-bottom: 1px solid var(--cgv-line);
   margin-bottom: 9px;
+  font-family: "Cormorant Garamond", serif !important;
+  font-size: 1.52rem !important;
+  font-weight: 700 !important;
+  line-height: 1.2 !important;
+}
+
+.pkp_structure_sidebar .pkp_block .content,
+.pkp_structure_sidebar .pkp_block .content a,
+.pkp_structure_sidebar .pkp_block .content li {
+  font-family: "Cormorant Garamond", serif !important;
+  font-size: 1.08rem !important;
+  line-height: 1.45 !important;
+  font-weight: 500 !important;
+  color: var(--cgv-ink) !important;
 }
 
 .pkp_page_index .current_issue .read_more a,
@@ -446,7 +465,7 @@ a {
 .pkp_structure_main .obj_article_summary .meta,
 .pkp_structure_main .obj_issue_summary .meta,
 .pkp_structure_sidebar .pkp_block .content {
-  font-size: 0.9rem;
+  font-size: 1.08rem;
 }
 
 .pkp_structure_sidebar .pkp_block .title {
@@ -457,7 +476,35 @@ a {
 .pkp_structure_main .obj_galley_link,
 .pkp_structure_sidebar .block_make_submission_link {
   border-radius: 999px;
-  font-size: 0.9rem;
+  font-size: 1.02rem;
+}
+
+.pkp_structure_sidebar .block_make_submission {
+  min-height: 88px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pkp_structure_sidebar .block_make_submission .content {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pkp_structure_sidebar .block_make_submission_link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pkp_structure_sidebar #customblock-cognivum-academic-press-journals .content h3,
+.pkp_structure_sidebar #customblock-cognivum-academic-press-journals .content h3 a {
+  font-size: 0.92rem !important;
+  line-height: 1.35 !important;
+  font-weight: 600 !important;
+  margin: 0 0 0.38rem 0 !important;
 }
 
 .pkp_structure_footer_wrapper {
@@ -502,25 +549,25 @@ a {
   }
 
   .pkp_structure_main h1 {
-    font-size: 2rem;
+    font-size: 1.66rem;
   }
 
   .pkp_structure_main h2,
   .pkp_structure_sidebar h2,
   .pkp_structure_sidebar .title {
-    font-size: 1.65rem;
+    font-size: 1.36rem;
   }
 
   .pkp_structure_main h3,
   .pkp_structure_sidebar h3 {
-    font-size: 1.35rem;
+    font-size: 1.2rem;
   }
 
   .pkp_structure_main p,
   .pkp_structure_main li,
   .pkp_structure_sidebar p,
   .pkp_structure_sidebar li {
-    font-size: 0.93rem;
+    font-size: 1rem;
   }
 
   .pkp_structure_main > [class^="page_"],
