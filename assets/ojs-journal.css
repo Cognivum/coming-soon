@@ -570,19 +570,19 @@ a {
   }
 }
 
-/* Header2 hard override: force inline nav row on desktop */
+/* Desktop nav stability: keep 3 zones on one row without collapsing primary menu */
 @media (min-width: 992px) {
   .pkp_structure_head.cgv_journal_head .pkp_site_nav_menu {
-    display: flex !important;
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) auto auto !important;
+    grid-template-areas: "primary search user" !important;
     align-items: center !important;
-    justify-content: flex-start !important;
-    gap: 0.85rem !important;
-    flex-wrap: nowrap !important;
+    column-gap: 0.95rem !important;
+    row-gap: 0 !important;
   }
 
   .pkp_structure_head.cgv_journal_head .pkp_navigation_primary_row {
-    order: 1;
-    flex: 1 1 auto !important;
+    grid-area: primary !important;
     min-width: 0 !important;
   }
 
@@ -593,16 +593,13 @@ a {
 
   .pkp_structure_head.cgv_journal_head #navigationPrimary.pkp_navigation_primary {
     display: flex !important;
-    flex-direction: row !important;
     align-items: center !important;
     justify-content: flex-start !important;
     flex-wrap: nowrap !important;
     gap: 0.45rem 0.95rem !important;
     width: 100% !important;
-    max-width: 100% !important;
     margin: 0 !important;
     padding: 0 !important;
-    list-style: none !important;
     white-space: nowrap !important;
     overflow-x: auto !important;
     overflow-y: hidden !important;
@@ -613,9 +610,6 @@ a {
     flex: 0 0 auto !important;
     width: auto !important;
     min-width: 0 !important;
-    float: none !important;
-    clear: none !important;
-    position: static !important;
     margin: 0 !important;
     visibility: visible !important;
     opacity: 1 !important;
@@ -632,14 +626,14 @@ a {
   }
 
   .pkp_structure_head.cgv_journal_head .pkp_navigation_search_wrapper {
-    order: 2;
+    grid-area: search !important;
     margin-left: 0 !important;
-    flex: 0 0 auto !important;
+    justify-self: end !important;
   }
 
   .pkp_structure_head.cgv_journal_head .pkp_navigation_user_wrapper {
-    order: 3;
-    margin-left: 0.75rem !important;
-    flex: 0 0 auto !important;
+    grid-area: user !important;
+    margin-left: 0 !important;
+    justify-self: end !important;
   }
 }
