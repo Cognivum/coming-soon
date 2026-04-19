@@ -5,82 +5,6 @@
     document.documentElement.style.setProperty('--cgv-header-height', h + 'px');
   }
 
-  function samePath(a, b) {
-    var aa = (a || '').replace(/\/+$/, '');
-    var bb = (b || '').replace(/\/+$/, '');
-    return aa === bb;
-  }
-
-  function buildDesktopPrimaryFallback(head) {
-    var row = head.querySelector('.pkp_navigation_primary_row');
-    var primary = head.querySelector('#navigationPrimary.pkp_navigation_primary');
-    if (!row || !primary) return;
-
-    var directLinks = [];
-    var liNodes = primary.children || [];
-    for (var i = 0; i < liNodes.length; i++) {
-      var li = liNodes[i];
-      if (!li || li.tagName !== 'LI') continue;
-      var a = li.querySelector('a');
-      if (!a) continue;
-      var label = (a.textContent || '').trim();
-      if (!label) continue;
-      directLinks.push({ href: a.href, label: label });
-    }
-    if (!directLinks.length) return;
-
-    var fallback = row.querySelector('.cgv-primary-fallback');
-    if (!fallback) {
-      fallback = document.createElement('div');
-      fallback.className = 'cgv-primary-fallback';
-      row.appendChild(fallback);
-    }
-
-    fallback.innerHTML = '';
-    fallback.style.setProperty('display', 'flex', 'important');
-    fallback.style.setProperty('align-items', 'center', 'important');
-    fallback.style.setProperty('justify-content', 'flex-start', 'important');
-    fallback.style.setProperty('gap', '0.45rem 0.95rem', 'important');
-    fallback.style.setProperty('white-space', 'nowrap', 'important');
-    fallback.style.setProperty('overflow-x', 'auto', 'important');
-    fallback.style.setProperty('overflow-y', 'hidden', 'important');
-    fallback.style.setProperty('width', '100%', 'important');
-    fallback.style.setProperty('max-width', '100%', 'important');
-    fallback.style.setProperty('min-width', '0', 'important');
-
-    var currentPath = window.location.pathname || '';
-    directLinks.forEach(function (linkData) {
-      var a = document.createElement('a');
-      a.href = linkData.href;
-      a.textContent = linkData.label;
-      a.style.setProperty('display', 'inline-flex', 'important');
-      a.style.setProperty('align-items', 'center', 'important');
-      a.style.setProperty('white-space', 'nowrap', 'important');
-      a.style.setProperty('text-decoration', 'none', 'important');
-      a.style.setProperty('line-height', '1.2', 'important');
-      a.style.setProperty('padding', '0', 'important');
-      a.style.setProperty('font-size', '0.94rem', 'important');
-      a.style.setProperty('font-family', '"Manrope", sans-serif', 'important');
-      a.style.setProperty('font-weight', '500', 'important');
-      a.style.setProperty('color', '#0d0d0d', 'important');
-
-      try {
-        var target = new URL(linkData.href, window.location.origin);
-        if (samePath(target.pathname, currentPath)) {
-          a.style.setProperty('text-decoration', 'underline', 'important');
-          a.style.setProperty('text-underline-offset', '3px', 'important');
-          a.style.setProperty('font-weight', '700', 'important');
-        }
-      } catch (e) {
-        // no-op
-      }
-
-      fallback.appendChild(a);
-    });
-
-    primary.style.setProperty('display', 'none', 'important');
-  }
-
   function restorePrimaryOnMobile(head) {
     var row = head.querySelector('.pkp_navigation_primary_row');
     var primary = head.querySelector('#navigationPrimary.pkp_navigation_primary');
@@ -185,9 +109,12 @@
       user.style.setProperty('align-items', 'center', 'important');
     }
 
-    // Final guard: on desktop, render a guaranteed inline primary menu row
-    // from OJS-provided links and hide the original list to avoid CSS conflicts.
-    buildDesktopPrimaryFallback(head);
+    // Keep original OJS menu as source of truth. Do not replace/hide it.
+    var row = head.querySelector('.pkp_navigation_primary_row');
+    if (row) {
+      var fallback = row.querySelector('.cgv-primary-fallback');
+      if (fallback) fallback.remove();
+    }
   }
 
   function init() {
