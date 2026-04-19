@@ -195,6 +195,11 @@
 
   .cgv-header__inner {
     grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      "brand toggle"
+      "nav nav"
+      "cta cta";
+    align-content: start;
     min-height: 84px;
     padding: 0.45rem 0;
     gap: 0.55rem;
@@ -202,7 +207,9 @@
   }
 
   .cgv-brand {
+    grid-area: brand;
     min-width: 0;
+    align-self: center;
   }
 
   .cgv-brand img {
@@ -212,7 +219,9 @@
 
   .cgv-menu-toggle {
     display: inline-flex;
+    grid-area: toggle;
     justify-self: end;
+    align-self: center;
   }
 
   .cgv-nav,
@@ -222,7 +231,7 @@
 
   .cgv-header.is-menu-open .cgv-nav {
     display: flex;
-    grid-column: 1 / -1;
+    grid-area: nav;
     width: 100%;
     flex-direction: column;
     align-items: flex-start;
@@ -259,7 +268,7 @@
 
   .cgv-header.is-menu-open .cgv-cta {
     display: inline-flex;
-    grid-column: 1 / -1;
+    grid-area: cta;
     justify-self: start;
     margin-top: 0.25rem;
     margin-bottom: 0.1rem;
