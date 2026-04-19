@@ -123,7 +123,7 @@ a {
   text-decoration: none;
   color: var(--cgv-ink);
   font-family: "Cormorant Garamond", serif;
-  font-size: clamp(1.35rem, 2.35vw, 2.1rem);
+  font-size: clamp(1.45rem, 2.55vw, 2.25rem);
   font-weight: 800;
   line-height: 1.16;
   letter-spacing: -0.01em;
@@ -335,6 +335,11 @@ a {
   margin-bottom: 0.55rem;
 }
 
+.pkp_structure_main .page_title {
+  font-size: 1.5em !important;
+  line-height: 1.2 !important;
+}
+
 .pkp_structure_main h2,
 .pkp_structure_sidebar h2,
 .pkp_structure_sidebar .title {
@@ -522,7 +527,7 @@ a {
 
 .pkp_structure_sidebar #customblock-cognivum-academic-press-journals .content a.cgv-current-journal-link,
 .pkp_structure_sidebar #customblock-cognivum-academic-press-journals .content .cgv-current-journal-link {
-  font-size: 1.28rem !important;
+  font-size: 1.22rem !important;
   line-height: 1.4 !important;
   font-weight: 700 !important;
 }
