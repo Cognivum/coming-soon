@@ -427,9 +427,10 @@ a {
 }
 
 .pkp_structure_main .page_information > h1,
+.pkp_structure_main .page_information h1,
 .pkp_structure_main .page_information .page_title {
   font-family: "Cormorant Garamond", serif !important;
-  font-size: 1.5em !important;
+  font-size: 1.5rem !important;
   font-weight: 700 !important;
   line-height: 1.2 !important;
   margin-top: 0 !important;
