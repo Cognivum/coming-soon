@@ -426,6 +426,31 @@ a {
   display: none !important;
 }
 
+.pkp_structure_main .page_information > h1,
+.pkp_structure_main .page_information .page_title {
+  font-family: "Cormorant Garamond", serif !important;
+  font-size: 1.5em !important;
+  font-weight: 700 !important;
+  line-height: 1.2 !important;
+  margin-top: 0 !important;
+  margin-bottom: 0.55rem !important;
+}
+
+.pkp_structure_main .page_information .description,
+.pkp_structure_main .page_information .description p,
+.pkp_structure_main .page_information .description li {
+  font-family: "Cormorant Garamond", serif !important;
+  font-size: 1.18rem !important;
+  line-height: 1.62 !important;
+  color: var(--cgv-muted) !important;
+}
+
+.pkp_structure_main .page_information .description a {
+  font-family: inherit !important;
+  font-size: inherit !important;
+  line-height: inherit !important;
+}
+
 .pkp_structure_main > [class^="page_"],
 .pkp_structure_main > [class*=" page_"],
 .pkp_structure_main > .page {
