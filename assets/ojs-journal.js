@@ -1,4 +1,9 @@
 (function () {
+  var LEGACY_OJS_HOSTS = {
+    'origin-cjs.cognivum.com': true,
+    'cjs.cognivum.com': true
+  };
+
   function upsertIconLink(rel, href, sizes) {
     var selector = 'link[rel="' + rel + '"]';
     var link = document.head ? document.head.querySelector(selector) : null;
@@ -245,6 +250,70 @@
     return parts[parts.length - 1] || '';
   }
 
+  function normalizePublicJournalPath(pathname) {
+    var path = (pathname || '/').trim();
+    if (!path) path = '/';
+    if (path.charAt(0) !== '/') path = '/' + path;
+
+    path = path.replace(/^\/index\.php(?=\/|$)/i, '') || '/';
+
+    if (path === '/' || /^\/index\/?$/i.test(path)) {
+      return '/journals';
+    }
+
+    if (/^\/journals(\/|$)/i.test(path)) {
+      return path.replace(/\/{2,}/g, '/');
+    }
+
+    return ('/journals' + path).replace(/\/{2,}/g, '/');
+  }
+
+  function redirectLegacyOriginHost() {
+    var host = (window.location.hostname || '').toLowerCase();
+    if (!LEGACY_OJS_HOSTS[host]) return false;
+
+    var target = new URL(window.location.href);
+    target.protocol = 'https:';
+    target.hostname = 'www.cognivum.com';
+    target.port = '';
+    target.pathname = normalizePublicJournalPath(target.pathname);
+
+    if (target.href !== window.location.href) {
+      window.location.replace(target.href);
+      return true;
+    }
+    return false;
+  }
+
+  function rewriteLegacyJournalLinks(root) {
+    var scope = root || document;
+    var links = scope.querySelectorAll ? scope.querySelectorAll('a[href]') : [];
+    if (!links.length) return;
+
+    Array.prototype.forEach.call(links, function (link) {
+      var href = link.getAttribute('href');
+      if (!href || href.charAt(0) === '#') return;
+      if (/^(mailto:|tel:|javascript:)/i.test(href)) return;
+
+      var parsed;
+      try {
+        parsed = new URL(href, window.location.origin);
+      } catch (e) {
+        return;
+      }
+
+      var host = (parsed.hostname || '').toLowerCase();
+      if (!LEGACY_OJS_HOSTS[host]) return;
+
+      parsed.protocol = 'https:';
+      parsed.hostname = 'www.cognivum.com';
+      parsed.port = '';
+      parsed.pathname = normalizePublicJournalPath(parsed.pathname);
+
+      link.setAttribute('href', parsed.toString());
+    });
+  }
+
   function normalizeJournalDirectoryBlock() {
     var block = document.getElementById('customblock-cognivum-academic-press-journals');
     if (!block) return;
@@ -283,18 +352,22 @@
   }
 
   function init() {
+    if (redirectLegacyOriginHost()) return;
     ensureFavicon();
+    rewriteLegacyJournalLinks(document);
     setHeaderOffset();
     normalizeJournalNav();
     normalizeJournalDirectoryBlock();
     setHomepageSummaryHeading();
     window.requestAnimationFrame(function () {
+      rewriteLegacyJournalLinks(document);
       setHeaderOffset();
       normalizeJournalNav();
       normalizeJournalDirectoryBlock();
       setHomepageSummaryHeading();
     });
     window.setTimeout(function () {
+      rewriteLegacyJournalLinks(document);
       setHeaderOffset();
       normalizeJournalNav();
       normalizeJournalDirectoryBlock();
@@ -304,6 +377,7 @@
     window.addEventListener(
       'resize',
       function () {
+        rewriteLegacyJournalLinks(document);
         setHeaderOffset();
         normalizeJournalNav();
         normalizeJournalDirectoryBlock();
