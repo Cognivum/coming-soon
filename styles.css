@@ -4,6 +4,7 @@
   --muted: #4c4c4c;
   --line: #dedede;
   --panel: #ffffff;
+  --copy-width: 65.5rem;
 }
 
 * {
@@ -174,6 +175,7 @@ h3 {
 h1 {
   font-size: clamp(2rem, 5vw, 4.2rem);
   margin-top: 0.42rem;
+  max-width: var(--copy-width);
 }
 
 h2 {
@@ -186,7 +188,7 @@ h3 {
 
 .lead {
   margin: 0.92rem 0 0;
-  max-width: 68ch;
+  max-width: var(--copy-width);
   color: var(--muted);
 }
 
@@ -251,7 +253,8 @@ h3 {
 }
 
 .about-copy {
-  max-width: 86ch;
+  max-width: var(--copy-width);
+  margin-left: calc(clamp(1.2rem, 2.8vw, 2.7rem) - clamp(1rem, 2.4vw, 1.8rem));
 }
 
 .about-copy p {
