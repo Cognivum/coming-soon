@@ -250,6 +250,20 @@ h3 {
   gap: 1rem;
 }
 
+.about-copy {
+  max-width: 86ch;
+}
+
+.about-copy p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.62;
+}
+
+.about-copy p + p {
+  margin-top: 0.8rem;
+}
+
 .journal-list,
 .value-grid {
   list-style: none;
