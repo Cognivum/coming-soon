@@ -433,10 +433,28 @@ h3 {
 @media (max-width: 640px) {
   .journal-card {
     grid-template-columns: 1fr;
+    gap: 0.75rem;
+    padding: clamp(0.82rem, 4vw, 1rem);
   }
 
   .journal-cover {
-    max-width: 150px;
+    justify-self: center;
+    width: clamp(118px, 42vw, 172px);
+    max-width: 100%;
+  }
+
+  .journal-card h3 {
+    font-size: clamp(1.22rem, 6.6vw, 1.55rem);
+    line-height: 1.08;
+  }
+
+  .journal-card p {
+    font-size: clamp(0.9rem, 4vw, 0.96rem);
+    line-height: 1.58;
+  }
+
+  .journal-card a {
+    font-size: clamp(0.86rem, 3.8vw, 0.92rem);
   }
 }
 
