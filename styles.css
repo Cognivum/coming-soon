@@ -336,15 +336,59 @@ h3 {
 .value-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.7rem;
+  gap: 0.82rem;
 }
 
-.value-grid li {
+.value-card {
   border: 1px solid var(--line);
-  border-radius: 12px;
-  padding: 0.72rem 0.8rem;
+  border-radius: 14px;
+  padding: 0.9rem 0.95rem;
   background: #fff;
-  font-size: 0.93rem;
+}
+
+.value-card-head {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 0.68rem;
+  margin-bottom: 0.52rem;
+}
+
+.value-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.2rem;
+  height: 2.2rem;
+  border: 1px solid #000;
+  border-radius: 999px;
+  color: #000;
+  flex: 0 0 auto;
+}
+
+.value-icon svg {
+  width: 1.24rem;
+  height: 1.24rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.value-card h3 {
+  font-family: "Manrope", sans-serif;
+  font-size: 0.98rem;
+  font-weight: 700;
+  line-height: 1.25;
+  margin: 0;
+}
+
+.value-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.58;
 }
 
 #contact p {
