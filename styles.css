@@ -395,6 +395,10 @@ h3 {
   margin: 0;
 }
 
+#contact p + p {
+  margin-top: 1rem;
+}
+
 #contact a {
   color: #000;
 }
