@@ -352,7 +352,7 @@ a {
 }
 
 @media (min-width: 993px) {
-  .pkp_structure_content.has_sidebar .pkp_structure_sidebar {
+  .pkp_structure_sidebar {
     position: sticky;
     top: var(--cgv-sidebar-sticky-top);
     max-height: calc(100vh - var(--cgv-sidebar-sticky-top) - 1rem);
@@ -642,7 +642,7 @@ a {
     gap: 0.8rem;
   }
 
-  .pkp_structure_content.has_sidebar .pkp_structure_sidebar {
+  .pkp_structure_sidebar {
     position: static;
     max-height: none;
     overflow: visible;
