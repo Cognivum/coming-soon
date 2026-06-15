@@ -9,6 +9,8 @@
   --cgv-shadow-card: none;
   --cgv-radius-block: 18px;
   --cgv-radius-card: 14px;
+  --cgv-journal-head-height: clamp(7.2rem, 10vw, 9.2rem);
+  --cgv-sidebar-sticky-top: calc(var(--cgv-header-height, 104px) + var(--cgv-journal-head-height) + 1rem);
 }
 
 html {
@@ -349,6 +351,16 @@ a {
   padding-top: 1.25rem !important;
 }
 
+@media (min-width: 993px) {
+  .pkp_structure_content.has_sidebar .pkp_structure_sidebar {
+    position: sticky;
+    top: var(--cgv-sidebar-sticky-top);
+    max-height: calc(100vh - var(--cgv-sidebar-sticky-top) - 1rem);
+    overflow-y: auto;
+    scrollbar-gutter: stable;
+  }
+}
+
 .pkp_structure_content.has_sidebar:before,
 .pkp_structure_content.has_sidebar:after {
   content: none !important;
@@ -631,6 +643,9 @@ a {
   }
 
   .pkp_structure_content.has_sidebar .pkp_structure_sidebar {
+    position: static;
+    max-height: none;
+    overflow: visible;
     padding-top: 0 !important;
   }
 

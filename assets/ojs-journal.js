@@ -29,6 +29,10 @@
     var globalHeader = document.querySelector('.cgv_global_header_shell .cgv-header');
     var h = globalHeader ? Math.ceil(globalHeader.getBoundingClientRect().height) : 104;
     document.documentElement.style.setProperty('--cgv-header-height', h + 'px');
+
+    var journalHeader = document.querySelector('.pkp_structure_head.cgv_journal_head');
+    var journalH = journalHeader ? Math.ceil(journalHeader.getBoundingClientRect().height) : 147;
+    document.documentElement.style.setProperty('--cgv-journal-head-height', journalH + 'px');
   }
 
   function stripNavInlineStyles(head) {
