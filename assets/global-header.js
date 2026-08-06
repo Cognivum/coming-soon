@@ -10,15 +10,15 @@
   const JOURNALS = [
     {
       label: "Journal of Marketing Theory, Research and Applications",
-      href: "https://www.cognivum.com/journals/journal-of-marketing-theory-research-and-applications",
+      href: "https://journals.cognivum.com/journal-of-marketing-theory-research-and-applications",
     },
     {
       label: "Cognivum Journal of Business",
-      href: "https://www.cognivum.com/journals/cognivum-journal-of-business",
+      href: "https://journals.cognivum.com/cognivum-journal-of-business",
     },
     {
       label: "Annals of Decision Analytics",
-      href: "https://www.cognivum.com/journals/annals-of-decision-analytics",
+      href: "https://journals.cognivum.com/annals-of-decision-analytics",
     },
   ];
 
