@@ -965,6 +965,19 @@ a {
 }
 
 /* OJS dropdown readability */
+.pkp_structure_head.cgv_journal_head .pkp_site_nav_menu {
+  color: #ffffff !important;
+  background: #0d0d0d !important;
+  border-radius: 4px;
+  padding: 0.42rem 0.58rem !important;
+}
+
+.pkp_structure_head.cgv_journal_head .pkp_navigation_primary > li > a,
+.pkp_structure_head.cgv_journal_head .pkp_navigation_user > li > a,
+.pkp_structure_head.cgv_journal_head .pkp_navigation_search_wrapper .pkp_search {
+  color: #ffffff !important;
+}
+
 .pkp_structure_head.cgv_journal_head .pkp_navigation_primary ul,
 .pkp_structure_head.cgv_journal_head .pkp_navigation_user ul ul,
 .pkp_structure_head.cgv_journal_head .pkp_navigation_user .dropdown-menu,
