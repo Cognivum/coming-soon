@@ -963,3 +963,41 @@ a {
     justify-content: flex-end !important;
   }
 }
+
+/* OJS dropdown readability */
+.pkp_structure_head.cgv_journal_head .pkp_navigation_primary ul,
+.pkp_structure_head.cgv_journal_head .pkp_navigation_user ul ul,
+.pkp_structure_head.cgv_journal_head .pkp_navigation_user .dropdown-menu,
+.pkp_structure_head.cgv_journal_head .dropdown-menu {
+  background: #0d0d0d !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.24) !important;
+}
+
+.pkp_structure_head.cgv_journal_head .pkp_navigation_primary ul a,
+.pkp_structure_head.cgv_journal_head .pkp_navigation_user ul ul a,
+.pkp_structure_head.cgv_journal_head .pkp_navigation_user .dropdown-menu a,
+.pkp_structure_head.cgv_journal_head .dropdown-menu a {
+  color: #ffffff !important;
+  background: transparent !important;
+}
+
+.pkp_structure_head.cgv_journal_head .pkp_navigation_primary ul a:hover,
+.pkp_structure_head.cgv_journal_head .pkp_navigation_primary ul a:focus,
+.pkp_structure_head.cgv_journal_head .pkp_navigation_user ul ul a:hover,
+.pkp_structure_head.cgv_journal_head .pkp_navigation_user ul ul a:focus,
+.pkp_structure_head.cgv_journal_head .pkp_navigation_user .dropdown-menu a:hover,
+.pkp_structure_head.cgv_journal_head .pkp_navigation_user .dropdown-menu a:focus,
+.pkp_structure_head.cgv_journal_head .dropdown-menu a:hover,
+.pkp_structure_head.cgv_journal_head .dropdown-menu a:focus {
+  color: #ffffff !important;
+  background: #1f1f1f !important;
+}
+
+.pkp_structure_head.cgv_journal_head .pkp_navigation_primary > li:hover > a,
+.pkp_structure_head.cgv_journal_head .pkp_navigation_primary > li > a:focus,
+.pkp_structure_head.cgv_journal_head .pkp_navigation_user > li:hover > a,
+.pkp_structure_head.cgv_journal_head .pkp_navigation_user > li > a:focus {
+  color: #ffffff !important;
+  background: #0d0d0d !important;
+}
