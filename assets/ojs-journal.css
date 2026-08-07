@@ -599,6 +599,17 @@ a {
   display: block;
 }
 
+.pkp_structure_sidebar .cgv_sidebar_submit .content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.pkp_structure_sidebar .cgv_sidebar_submit .block_make_submission_link {
+  text-align: center;
+}
+
 .pkp_structure_sidebar .cgv_sidebar_list {
   display: grid;
   gap: 0.32rem;
