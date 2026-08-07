@@ -612,21 +612,23 @@ a {
   padding: 0;
 }
 
-.pkp_structure_sidebar .cgv_sidebar_block h3 {
+.pkp_structure_sidebar .cgv_sidebar_heading {
   margin: 0 0 0.45rem 0;
   font-family: "Cormorant Garamond", serif !important;
   font-size: 1.18rem !important;
   line-height: 1.28 !important;
   font-weight: 700 !important;
-}
-
-.pkp_structure_sidebar .cgv_sidebar_news p {
-  margin: 0;
-}
-
-.pkp_structure_sidebar .cgv_sidebar_journals .content h3 {
   letter-spacing: 0;
   text-transform: uppercase;
+}
+
+.pkp_structure_sidebar .cgv_sidebar_list li,
+.pkp_structure_sidebar .cgv_sidebar_list a {
+  font-family: "Cormorant Garamond", serif !important;
+  font-size: 1.15rem !important;
+  line-height: 1.45 !important;
+  font-weight: 500 !important;
+  color: var(--cgv-ink) !important;
 }
 
 .pkp_structure_sidebar #customblock-cognivum-academic-press-journals .content h3,
