@@ -19,7 +19,7 @@
 
   function ensureFavicon() {
     if (!document.head) return;
-    var href = '/favicon-cognivum-square.png';
+    var href = 'https://www.cognivum.com/favicon-cognivum-square.png';
     upsertIconLink('icon', href, '512x512');
     upsertIconLink('shortcut icon', href);
     upsertIconLink('apple-touch-icon', href);
