@@ -498,6 +498,24 @@ a {
   display: none !important;
 }
 
+.page_contact .contact_section {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem 2rem;
+  align-items: start;
+}
+
+.page_contact .contact_section .contact {
+  float: none !important;
+  width: auto !important;
+  margin: 0 !important;
+  min-width: 0;
+}
+
+.page_contact .contact_section .contact h2 {
+  margin-top: 0 !important;
+}
+
 .cgv_journal_landing {
   display: grid;
   grid-template-columns: minmax(150px, 210px) minmax(0, 1fr);
@@ -1007,6 +1025,10 @@ a {
 }
 
 @media (max-width: 680px) {
+  .page_contact .contact_section {
+    grid-template-columns: 1fr;
+  }
+
   .cgv_journal_landing {
     grid-template-columns: 1fr;
   }
