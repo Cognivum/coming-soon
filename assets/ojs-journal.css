@@ -494,6 +494,10 @@ a {
   margin-top: 0.85rem;
 }
 
+.page_submissions .section_policy {
+  display: none !important;
+}
+
 .cgv_journal_landing {
   display: grid;
   grid-template-columns: minmax(150px, 210px) minmax(0, 1fr);
