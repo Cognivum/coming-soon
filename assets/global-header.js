@@ -9,7 +9,7 @@
 
   const JOURNALS = [
     {
-      label: "Journal of Marketing Theory, Research and Applications",
+      label: "Journal of Marketing Theory Research and Applications",
       href: "https://journals.cognivum.com/journal-of-marketing-theory-research-and-applications",
     },
     {
