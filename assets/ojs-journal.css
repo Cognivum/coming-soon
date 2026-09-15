@@ -1,9 +1,9 @@
 :root {
   --cgv-bg: #fdfdfd;
   --cgv-ink: #0d0d0d;
-  --cgv-muted: #4c4c4c;
+  --cgv-muted: #242424;
   --cgv-line: #dedede;
-  --cgv-panel: rgba(255, 255, 255, 0.74);
+  --cgv-panel: #ffffff;
   --cgv-card: #ffffff;
   --cgv-shadow-soft: 0 20px 46px rgba(0, 0, 0, 0.08);
   --cgv-shadow-card: none;
@@ -1226,4 +1226,73 @@ a {
 .pkp_structure_head.cgv_journal_head .pkp_navigation_user > li > a:focus {
   color: #ffffff !important;
   background: #0d0d0d !important;
+}
+
+/* Readability pass: keep OJS body copy as clear as the publisher site. */
+.pkp_structure_main,
+.pkp_structure_sidebar {
+  color: var(--cgv-ink);
+}
+
+.pkp_structure_main p,
+.pkp_structure_main li,
+.pkp_structure_main td,
+.pkp_structure_main th,
+.pkp_structure_main dd,
+.pkp_structure_main dt,
+.pkp_structure_main .description,
+.pkp_structure_main .summary,
+.pkp_structure_main .item,
+.pkp_structure_main .value,
+.pkp_structure_main .meta,
+.pkp_structure_main .page_information .description,
+.pkp_structure_main .page_information .description p,
+.pkp_structure_main .page_information .description li,
+.cgv_journal_landing_summary,
+.cgv_journal_landing_summary p,
+.cgv_journal_landing_summary li {
+  font-family: "Manrope", sans-serif !important;
+  font-size: 1rem !important;
+  line-height: 1.68 !important;
+  font-weight: 500 !important;
+  color: #151515 !important;
+}
+
+.pkp_structure_sidebar .pkp_block,
+.pkp_structure_sidebar .pkp_block .content,
+.pkp_structure_sidebar .pkp_block .content a,
+.pkp_structure_sidebar .pkp_block .content p,
+.pkp_structure_sidebar .pkp_block .content li,
+.pkp_structure_sidebar .cgv_sidebar_heading,
+.pkp_structure_sidebar .cgv_sidebar_list li,
+.pkp_structure_sidebar .cgv_sidebar_list a,
+.pkp_structure_sidebar #customblock-cognivum-academic-press-journals .content h1,
+.pkp_structure_sidebar #customblock-cognivum-academic-press-journals .content h2,
+.pkp_structure_sidebar #customblock-cognivum-academic-press-journals .content h3,
+.pkp_structure_sidebar #customblock-cognivum-academic-press-journals .content h3 a,
+.pkp_structure_sidebar #customblock-cognivum-academic-press-journals .content h4,
+.pkp_structure_sidebar #customblock-cognivum-academic-press-journals .content p,
+.pkp_structure_sidebar #customblock-cognivum-academic-press-journals .content li,
+.pkp_structure_sidebar #customblock-cognivum-academic-press-journals .content a {
+  font-family: "Manrope", sans-serif !important;
+  font-size: 1rem !important;
+  line-height: 1.55 !important;
+  font-weight: 500 !important;
+  color: #111111 !important;
+}
+
+.pkp_structure_main h1,
+.pkp_structure_main h2,
+.pkp_structure_main h3,
+.pkp_structure_main h4,
+.pkp_structure_sidebar .pkp_block .title {
+  color: var(--cgv-ink) !important;
+  font-weight: 800 !important;
+}
+
+.pkp_structure_main a,
+.pkp_structure_sidebar a {
+  color: #000000 !important;
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.13em;
 }
